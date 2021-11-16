@@ -79,10 +79,10 @@ interface EscrowState {
 export default defineComponent({
   setup() {
     const formState = reactive({
-      privateKey: "",
-      programId: "",
-      aliceXTokenAccountPubkey: "",
-      aliceYTokenAccountPubkey: "",
+      privateKey: "214,233,232,4,54,47,200,29,28,0,233,222,76,44,160,26,52,117,142,2,193,77,175,175,112,150,37,103,152,37,117,197,250,71,186,65,251,66,188,78,222,108,74,189,226,7,87,28,149,105,169,101,191,185,15,211,6,147,187,63,88,234,124,163",
+      programId: "Hj3kcCCfHTqSLKi8MTFSApH61Vp8PuhdFiXvXhKCkMPs",
+      aliceXTokenAccountPubkey: "5QUTCZu5iNjWVzVPx2hX1aiF7XzqtWKZ2gL7gAb1zxYy",
+      aliceYTokenAccountPubkey: "7thEXRdUvDhBZJ5HJb2A75RzTQMfQZnmNFzbkd2ad9kS",
       amountXTokensToSendToEscrow: 0,
       amountYTokensAliceExpects: 0
     })
@@ -97,10 +97,10 @@ export default defineComponent({
     });
 
     const resetAliceUI = () => {
-      formState.privateKey = "";
-      formState.programId = "";
-      formState.aliceXTokenAccountPubkey = "";
-      formState.aliceYTokenAccountPubkey = "";
+      formState.privateKey = "214,233,232,4,54,47,200,29,28,0,233,222,76,44,160,26,52,117,142,2,193,77,175,175,112,150,37,103,152,37,117,197,250,71,186,65,251,66,188,78,222,108,74,189,226,7,87,28,149,105,169,101,191,185,15,211,6,147,187,63,88,234,124,163";
+      formState.programId = "Hj3kcCCfHTqSLKi8MTFSApH61Vp8PuhdFiXvXhKCkMPs";
+      formState.aliceXTokenAccountPubkey = "5QUTCZu5iNjWVzVPx2hX1aiF7XzqtWKZ2gL7gAb1zxYy";
+      formState.aliceYTokenAccountPubkey = "7thEXRdUvDhBZJ5HJb2A75RzTQMfQZnmNFzbkd2ad9kS";
       formState.amountXTokensToSendToEscrow = 0;
       formState.amountYTokensAliceExpects = 0;
       Object.keys(escrowState).forEach(key => escrowState[key as keyof EscrowState] = null);

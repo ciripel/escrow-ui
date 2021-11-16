@@ -3,7 +3,7 @@ import { Account, Connection, PublicKey, Transaction, TransactionInstruction } f
 import BN from "bn.js";
 import { ESCROW_ACCOUNT_DATA_LAYOUT, EscrowLayout } from "./layout"; 
 
-const connection = new Connection("http://localhost:8899", 'singleGossip');
+const connection = new Connection("https://api.devnet.solana.com", 'singleGossip');
 
 export const takeTrade = async (
     privateKeyByteArray: string,
