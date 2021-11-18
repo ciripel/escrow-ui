@@ -1,61 +1,60 @@
 <template>
-  <div class="bg">
-    <p class="title">Escrow UI</p>
+  <div class="container mt-3 mt-sm-5">
     <div>
-      <div class="mb-1">
+      <div class="form-group">
           <label for="2020-12-24-programId-escrow-alice">Throwaway private key (as byte array from sollet.io, without the '[]')</label>
-          <input class="display-block" type="text" v-model="formState.privateKey">
+          <input class="form-control form-control-warning" type="text" v-model="formState.privateKey">
       </div>
-      <div class="mb-1">
+      <div class="form-group">
           <label for="2020-12-24-programId-escrow-alice">Program id</label>
-          <input class="display-block" type="text" id="2020-12-24-programId-escrow-alice" v-model="formState.programId">
+          <input class="form-control form-control-warning" type="text" id="2020-12-24-programId-escrow-alice" v-model="formState.programId">
       </div>
-      <div class="mb-1">
+      <div class="form-group">
           <label for="">Alice's X token account pubkey</label>
-          <input class="display-block" type="text" v-model="formState.aliceXTokenAccountPubkey">
+          <input class="form-control form-control-warning" type="text" v-model="formState.aliceXTokenAccountPubkey">
       </div>
-      <div class="mb-1">
+      <div class="form-group">
           <label for="">Amount of X tokens to send to escrow</label>
-          <input class="display-block" type="number" v-model="formState.amountXTokensToSendToEscrow">
+          <input class="form-control form-control-warning" type="number" v-model="formState.amountXTokensToSendToEscrow">
       </div>
-      <div class="mb-1">
+      <div class="form-group">
           <label for="">Alice's Y token account pubkey</label>
-          <input class="display-block" type="text" v-model="formState.aliceYTokenAccountPubkey">
+          <input class="form-control form-control-warning" type="text" v-model="formState.aliceYTokenAccountPubkey">
       </div>
-      <div class="mb-1">
+      <div class="form-group">
           <label for="">Amount of Y tokens Alice wants</label>
-          <input class="display-block" type="number" v-model="formState.amountYTokensAliceExpects">
+          <input class="form-control form-control-warning" type="number" v-model="formState.amountYTokensAliceExpects">
       </div>
-      <div class="mb-1">
-          <input style="margin-right: 5px;" class="cursor-pointer border-none bg-btn normal-font-size" type="submit" value="Reset UI" @click="resetAliceUI">
-          <input class="cursor-pointer border-none bg-btn normal-font-size" type="submit" value="Init escrow" @click="onInitEscrow">
+      <div class="form-group">
+          <input style="margin-right: 5px;" class="btn btn-primary" type="submit" value="Reset UI" @click="resetAliceUI">
+          <input class="btn btn-primary" type="submit" value="Init escrow" @click="onInitEscrow">
       </div>
     </div>
     <div>
-      <div class="mb-1">
+      <div class="form-group">
         Escrow account:
         <div>{{ escrowState.escrowAccountPubkey ?? '--' }}</div>
       </div>
-      <div class="mb-1">
+      <div class="form-group">
         Decoded State
       </div>
-      <div class="mb-1">
+      <div class="form-group">
         Is initialized:
         <div>{{ escrowState.isInitialized ?? '--' }}</div>
       </div>
-      <div class="mb-1">
+      <div class="form-group">
         Initializer account:
         <div>{{ escrowState.initializerAccountPubkey ?? '--' }}</div>
       </div>
-      <div class="mb-1">
+      <div class="form-group">
         X token temp account:
         <div>{{ escrowState.XTokenTempAccountPubkey ?? '--' }}</div>
       </div>
-      <div class="mb-1">
+      <div class="form-group">
         Initializer Y token account:
         <div>{{ escrowState.initializerYTokenAccount ?? '--' }}</div>
       </div>
-      <div class="mb-1">
+      <div class="form-group">
         ExpectedAmount:
         <div>{{ escrowState.expectedAmount ?? '--' }}</div>
       </div>
@@ -79,10 +78,10 @@ interface EscrowState {
 export default defineComponent({
   setup() {
     const formState = reactive({
-      privateKey: "214,233,232,4,54,47,200,29,28,0,233,222,76,44,160,26,52,117,142,2,193,77,175,175,112,150,37,103,152,37,117,197,250,71,186,65,251,66,188,78,222,108,74,189,226,7,87,28,149,105,169,101,191,185,15,211,6,147,187,63,88,234,124,163",
-      programId: "Hj3kcCCfHTqSLKi8MTFSApH61Vp8PuhdFiXvXhKCkMPs",
-      aliceXTokenAccountPubkey: "5QUTCZu5iNjWVzVPx2hX1aiF7XzqtWKZ2gL7gAb1zxYy",
-      aliceYTokenAccountPubkey: "7thEXRdUvDhBZJ5HJb2A75RzTQMfQZnmNFzbkd2ad9kS",
+      privateKey: "182,26,65,29,158,59,199,28,44,65,213,221,96,113,46,168,248,14,69,75,133,179,35,44,218,52,215,242,255,198,90,26,82,146,227,191,68,11,97,154,164,84,65,121,4,20,107,99,140,183,54,192,145,169,34,211,224,236,72,152,96,198,9,229",
+      programId: "EWteUw3TUuQniV6pA3c4YjJSo2x6JzMMSfgia7m9gm49",
+      aliceXTokenAccountPubkey: "3D5BCoBgx1yZx3L28Ja82ae8wxGVABYorbqSeBrosMbR",
+      aliceYTokenAccountPubkey: "GxvkCquftnvwYBgUqxNv4GtpYg8Q5QV2VtiuhNBQ3wjJ",
       amountXTokensToSendToEscrow: 0,
       amountYTokensAliceExpects: 0
     })
@@ -97,10 +96,10 @@ export default defineComponent({
     });
 
     const resetAliceUI = () => {
-      formState.privateKey = "214,233,232,4,54,47,200,29,28,0,233,222,76,44,160,26,52,117,142,2,193,77,175,175,112,150,37,103,152,37,117,197,250,71,186,65,251,66,188,78,222,108,74,189,226,7,87,28,149,105,169,101,191,185,15,211,6,147,187,63,88,234,124,163";
-      formState.programId = "Hj3kcCCfHTqSLKi8MTFSApH61Vp8PuhdFiXvXhKCkMPs";
-      formState.aliceXTokenAccountPubkey = "5QUTCZu5iNjWVzVPx2hX1aiF7XzqtWKZ2gL7gAb1zxYy";
-      formState.aliceYTokenAccountPubkey = "7thEXRdUvDhBZJ5HJb2A75RzTQMfQZnmNFzbkd2ad9kS";
+      formState.privateKey = "182,26,65,29,158,59,199,28,44,65,213,221,96,113,46,168,248,14,69,75,133,179,35,44,218,52,215,242,255,198,90,26,82,146,227,191,68,11,97,154,164,84,65,121,4,20,107,99,140,183,54,192,145,169,34,211,224,236,72,152,96,198,9,229";
+      formState.programId = "EWteUw3TUuQniV6pA3c4YjJSo2x6JzMMSfgia7m9gm49";
+      formState.aliceXTokenAccountPubkey = "3D5BCoBgx1yZx3L28Ja82ae8wxGVABYorbqSeBrosMbR";
+      formState.aliceYTokenAccountPubkey = "GxvkCquftnvwYBgUqxNv4GtpYg8Q5QV2VtiuhNBQ3wjJ";
       formState.amountXTokensToSendToEscrow = 0;
       formState.amountYTokensAliceExpects = 0;
       Object.keys(escrowState).forEach(key => escrowState[key as keyof EscrowState] = null);

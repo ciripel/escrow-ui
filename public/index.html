@@ -4,13 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" media="screen" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body>
+  <body class="bg">
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <div class="container top-10">
+      <input style="margin-right: 5px;" class="btn btn-primary right" type="submit" value="CONNECT WALLET" @click="resetAliceUI">
+      <h1>Escrow Program Interface</h1>
+    </div>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
