@@ -1,9 +1,12 @@
 import { AccountLayout, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token";
-import { Account, Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction } from "@solana/web3.js";
+import { Account, Connection, PublicKey, SystemProgram, Transaction, TransactionInstruction, clusterApiUrl } from "@solana/web3.js";
 import BN from "bn.js";
 import { ESCROW_ACCOUNT_DATA_LAYOUT, EscrowLayout } from "./layout";
+import Wallet from "@project-serum/sol-wallet-adapter";
 
-const connection = new Connection("https://api.devnet.solana.com", 'singleGossip');
+// const connection = new Connection("https://api.devnet.solana.com", 'singleGossip');
+
+
 
 export const initEscrow = async (
     privateKeyByteArray: string,
@@ -12,6 +15,15 @@ export const initEscrow = async (
     initializerReceivingTokenAccountPubkeyString: string,
     expectedAmount: number,
     escrowProgramIdString: string) => {
+
+    const network = clusterApiUrl('devnet');
+    const connection = new Connection(network);
+    const providerUrl = 'https://www.sollet.io';
+    const wallet = new Wallet(providerUrl, network);
+    wallet.on('connect', publicKey => console.log('Connected to ' + publicKey.toBase58()));
+    wallet.on('disconnect', () => console.log('Disconnected'));
+    await wallet.connect();
+    
     const initializerXTokenAccountPubkey = new PublicKey(initializerXTokenAccountPubkeyString);
 
     //@ts-expect-error
