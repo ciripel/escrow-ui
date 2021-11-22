@@ -18,11 +18,6 @@ export const initEscrow = async (
 
     const network = clusterApiUrl('devnet');
     const connection = new Connection(network);
-    const providerUrl = 'https://www.sollet.io';
-    const wallet = new Wallet(providerUrl, network);
-    wallet.on('connect', publicKey => console.log('Connected to ' + publicKey.toBase58()));
-    wallet.on('disconnect', () => console.log('Disconnected'));
-    await wallet.connect();
     
     const initializerXTokenAccountPubkey = new PublicKey(initializerXTokenAccountPubkeyString);
 
